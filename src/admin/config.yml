@@ -1,0 +1,47 @@
+backend:
+  name: git-gateway
+  branch: main
+media_folder: "_site/assets/blog"
+public_folder: "assts/blog"
+collections: 
+    - name: "blog"
+      label: " Blog"
+      folder: "src/blog"
+      create: true 
+      slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+      fields: 
+        - { label: "Title", name: "title", widget: "strig" }
+        - { label: "Description", name: "description", widget: "strig" }
+        - { label: "Author", name: "author", widget: "strig" }
+        - { label: "Date", name: "date", widget: "datetime" }
+        - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
+        - { label: "Featured Image", name: "image", widget: "image" }
+        - { label: "Image caption", name: "imageAlt", widget: "string" }
+        - { label: "Body", name: "body", widget: "markdown" }
+    - name: "more"
+      label: "More"
+      folder: "src/inner-pages/more_page"
+      files:
+      - file: "inner-pages/more_page"
+        label: "Nav Pages"
+        name: "more"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Blurb", name: "blurb", widget: "text" }
+          - {
+              label: "Section",
+              name: "section",
+              widget: "object",
+              fields:
+                [
+                  { label: "Heading", name: "heading", widget: string },
+                  { label: "Tags", name: "tags", widget: "list", default: ["more"] }
+                  { label: "Text", name: "text", widget: "text" },
+                ],
+            }
+      - file: "inner-pages/about"
+        label: "About"
+        name: "about"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "text" }
