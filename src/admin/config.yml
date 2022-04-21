@@ -4,8 +4,8 @@ backend:
 media_folder: "public/assets/blog"
 public_folder: "assets/blog"
 collections: 
-  - name: "blog"
-    label: "Blog"
+  - label: "Blog"
+    name: "blog"
     folder: "src/blog"
     create: true 
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
@@ -18,8 +18,8 @@ collections:
       - { label: "Featured Image", name: "image", widget: "image" }
       - { label: "Image caption", name: "imageAlt", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
-  - name: "more"
-    label: "More"
+  - label: "More"
+    name: "more"
     folder: "src/inner-pages/more_page"
     create: true
     fields:
@@ -28,8 +28,8 @@ collections:
       - { label: "Tags", name: "tags", widget: "list", default: ["more"] }
       - { label: "Featured Image", name: "image", widget: "image" }
       - { label: "Body", name: "body", widget: "markdown" }
-  - name: "about"
-    label: "About"
+  - label: "About"
+    name: "about"
     folder: "src//inner-pages/about_page"
     create: true
     fields:
