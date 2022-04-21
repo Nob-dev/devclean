@@ -1,5 +1,5 @@
 {
-  "name": "iosoft",
+  "name": "devclean",
   "version": "1.0.0",
   "description": "These are the starting files used byto create a personal blog site for the DevProjects Challenge, [Create a fast and secure blog using JAMStack](https://www.codementor.io/projects/web/create-a-fast-and-secure-blog-using-jamstack-c93coupnxb). You are free to use them however you want to get started with the challenge, if you'd like to start working on creating the site without worrying about the content itself.",
   "main": "index.js",
