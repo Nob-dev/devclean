@@ -4,34 +4,34 @@ backend:
 media_folder: "public/assets/blog"
 public_folder: "assets/blog"
 collections: 
-    - name: "blog"
-     label: " Blog"
-    folder: "src/blog"
-    create: true 
-      slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-      fields: 
-        - { label: "Title", name: "title", widget: "string" }
-        - { label: "Description", name: "description", widget: "string" }
-        - { label: "Author", name: "author", widget: "string" }
-        - { label: "Date", name: "date", widget: "datetime" }
-        - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
-        - { label: "Featured Image", name: "image", widget: "image" }
-        - { label: "Image caption", name: "imageAlt", widget: "string" }
-        - { label: "Body", name: "body", widget: "markdown" }
-     - name: "more"
-      label: "More"
-      folder: "src/inner-pages/more_page"
-      create: true
-      fields:
-        - { label: "Title", name: "title", widget: "string" }
-        - { label: "Body", name: "body", widget: "markdown" }
-        - { label: "Tags", name: "tags", widget: "list", default: ["more"] }
-        - { label: "Featured Image", name: "image", widget: "image" }
-        - { label: "Body", name: "body", widget: "markdown" }
-     - name: "about"
-       label: "About"
-       folder: "src/blog"
-       create: true
-       fields:
-         - { label: "Title", name: "title", widget: "string" }
-         - { label: "Body", name: "body", widget: "text" }
+- name: "blog"
+label: " Blog"
+folder: "src/blog"
+create: true 
+slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+fields: 
+- { label: "Title", name: "title", widget: "string" }
+- { label: "Description", name: "description", widget: "string" }
+- { label: "Author", name: "author", widget: "string" }
+- { label: "Date", name: "date", widget: "datetime" }
+- { label: "Tags", name: "tags", widget: "list", default: ["post"] }
+- { label: "Featured Image", name: "image", widget: "image" }
+- { label: "Image caption", name: "imageAlt", widget: "string" }
+- { label: "Body", name: "body", widget: "markdown" }
+- name: "more"
+label: "More"
+folder: "src/inner-pages/more_page"
+create: true
+fields:
+- { label: "Title", name: "title", widget: "string" }
+- { label: "Body", name: "body", widget: "markdown" }
+- { label: "Tags", name: "tags", widget: "list", default: ["more"] }
+- { label: "Featured Image", name: "image", widget: "image" }
+- { label: "Body", name: "body", widget: "markdown" }
+- name: "about"
+label: "About"
+folder: "src/blog"
+create: true
+fields:
+- { label: "Title", name: "title", widget: "string" }
+- { label: "Body", name: "body", widget: "text" }
