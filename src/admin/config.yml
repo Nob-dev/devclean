@@ -21,6 +21,7 @@ collections:
   - label: "More"
     name: "more"
     folder: "src/more_page"
+    public_folder: "../assets/more"
     create: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
@@ -31,6 +32,7 @@ collections:
   - label: "About"
     name: "about"
     folder: "src/about_page"
+    public_folder: "../assets/about"
     create: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
