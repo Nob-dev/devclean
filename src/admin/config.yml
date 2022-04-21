@@ -10,9 +10,9 @@ collections:
       create: true 
       slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
       fields: 
-        - { label: "Title", name: "title", widget: "strig" }
-        - { label: "Description", name: "description", widget: "strig" }
-        - { label: "Author", name: "author", widget: "strig" }
+        - { label: "Title", name: "title", widget: "string" }
+        - { label: "Description", name: "description", widget: "string" }
+        - { label: "Author", name: "author", widget: "string" }
         - { label: "Date", name: "date", widget: "datetime" }
         - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
         - { label: "Featured Image", name: "image", widget: "image" }
@@ -28,17 +28,6 @@ collections:
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Blurb", name: "blurb", widget: "text" }
-          - {
-              label: "Section",
-              name: "section",
-              widget: "object",
-              fields:
-                [
-                  { label: "Heading", name: "heading", widget: string },
-                  { label: "Tags", name: "tags", widget: "list", default: ["more"] },
-                  { label: "Body", name: "body", widget: "markdown" },
-                ],
-            }
       - file: "inner-pages/about"
         label: "About"
         name: "about"
