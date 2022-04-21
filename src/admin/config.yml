@@ -30,8 +30,8 @@ collections:
         - { label: "Featured Image", name: "image", widget: "image" }
         - { label: "Body", name: "body", widget: "markdown" }
 collections:
-        label: "About"
     - name: "about"
+      label: "About"
       folder: "src/blog"
       create: true
       fields:
