@@ -1,4 +1,4 @@
-backend:
+ backend:
       name: git-gateway
       branch: master
 media_folder: "public/assets/blog"
@@ -18,8 +18,8 @@ collections:
         - { label: "Featured Image", name: "image", widget: "image" }
         - { label: "Image caption", name: "imageAlt", widget: "string" }
         - { label: "Body", name: "body", widget: "markdown" }
-collections:
-    - name: "more"
+ collections:
+     - name: "more"
       label: "More"
       folder: "src/inner-pages/more_page"
       create: true
@@ -29,11 +29,11 @@ collections:
         - { label: "Tags", name: "tags", widget: "list", default: ["more"] }
         - { label: "Featured Image", name: "image", widget: "image" }
         - { label: "Body", name: "body", widget: "markdown" }
-collections:
-    - name: "about"
-      label: "About"
-      folder: "src/blog"
-      create: true
-      fields:
-        - { label: "Title", name: "title", widget: "string" }
-        - { label: "Body", name: "body", widget: "text" }
+ collections:
+     - name: "about"
+       label: "About"
+       folder: "src/blog"
+       create: true
+       fields:
+         - { label: "Title", name: "title", widget: "string" }
+         - { label: "Body", name: "body", widget: "text" }
