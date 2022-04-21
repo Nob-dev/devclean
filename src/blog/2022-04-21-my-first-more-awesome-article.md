@@ -5,7 +5,7 @@ author: Awesome
 date: 2022-04-21T13:49:10.991Z
 tags:
   - post
-image: assets/blog/2022-04-10-15.28.png
+image: assets/blog/article-3.jpg
 imageAlt: "Asite is that you know what I think "
 ---
 
