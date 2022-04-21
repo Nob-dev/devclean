@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/iObedson/obsft.git"
+    "url": "git+https://github.com/Nob-dev/devclean.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/iObedson/obsft"
+    "url": "https://https://github.com/Nob-dev/devclean"
   },
-  "homepage": "https://github.com/iObedson/obsft#readme",
+  "homepage": "https://github.com/Nob-dev/devclean#readme",
   "devDependencies": {
     "@11ty/eleventy": "^1.0.0",
     "netlify-cli": "^3.7.1"
