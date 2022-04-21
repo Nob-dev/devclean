@@ -5,7 +5,7 @@ author: zz
 date: 2022-04-21T15:44:45.436Z
 tags:
   - post
-image: assets/blog/git-cmd.jpg
+image: assets/blog/nabteb-results.jpg
 imageAlt: logko
 ---
 
