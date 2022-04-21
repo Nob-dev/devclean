@@ -1,37 +1,214 @@
- backend:
-      name: git-gateway
-    branch: master
- media_folder: "public/assets/blog"
+backend:
+  # Use netlify identity as backend
+  name: git-gateway
+  branch: master
+  ### enable below lines for github integration ###
+  # name: github
+  # repo: surjithctly/neat-starter
+media_folder: ""public/assets/blog"
 public_folder: "assets/blog"
-collections: 
-    - name: "blog"
-     label: " Blog"
-    folder: "src/blog"
-    create: true 
-      slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-      fields: 
-        - { label: "Title", name: "title", widget: "string" }
-        - { label: "Description", name: "description", widget: "string" }
-        - { label: "Author", name: "author", widget: "string" }
-        - { label: "Date", name: "date", widget: "datetime" }
-        - { label: "Tags", name: "tags", widget: "list", default: ["post"] }
-        - { label: "Featured Image", name: "image", widget: "image" }
-        - { label: "Image caption", name: "imageAlt", widget: "string" }
-        - { label: "Body", name: "body", widget: "markdown" }
-     - name: "more"
-      label: "More"
-      folder: "src/inner-pages/more_page"
-      create: true
-      fields:
-        - { label: "Title", name: "title", widget: "string" }
-        - { label: "Body", name: "body", widget: "markdown" }
-        - { label: "Tags", name: "tags", widget: "list", default: ["more"] }
-        - { label: "Featured Image", name: "image", widget: "image" }
-        - { label: "Body", name: "body", widget: "markdown" }
-     - name: "about"
-       label: "About"
-       folder: "src/blog"
-       create: true
+
+# Please run "npx netlify-cms-proxy-server" for local backend
+local_backend: true
+# publish_mode: editorial_workflow
+collections:
+  - label: "Basic Pages"
+    label_singular: "Basic Page"
+    name: "page"
+    folder: "src/pages"
+    create: true
+    editor:
+      preview: false
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+
+  - label: "Events"
+    label_singular: "Event"
+    name: "event"
+    summary: "{{fields.event_date | date('MMM DD, YYYY')}} | {{title}}: {{subtitle}}"
+    folder: "src/events"
+    slug: "{{slug}}"
+    path: "{{year}}/{{month}}/{{slug}}"
+    create: true
+    editor:
+      preview: false
+    view_groups:
+      - label: Year
+        field: event_date
+        # groups items based on the value matched by the pattern
+        pattern: \d{4}
+    view_filters:
+      - label: "Club Meetings"
+        field: categories
+        pattern: 'club-meeting'
+    fields:
+     - { label: "Title", name: "title", widget: "string" }
+     - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+     - { label: "Date", name: "event_date", widget: "datetime", default: "", format: 'MM-DD-YYYY HH:mm ZZ', date_format: "MMM D, YYYY", time_format: "h:mma", picker_utc: false }
+     - label: "Address"
+       name: "address"
+       widget: object
+       required: false
        fields:
-         - { label: "Title", name: "title", widget: "string" }
-         - { label: "Body", name: "body", widget: "text" }
+         - { label: "Name", name: "name", widget: "string", required: false }
+         - { label: "Street 1", name: "street1", widget: "string" }
+         - { label: "Street 2", name: "street2", widget: "string", required: false }
+         - { label: "City", name: "city", widget: "string" }
+         - { label: "State", name: "state", widget: "string" }
+         - { label: "Zip", name: "zipcode", widget: "number", value_type: int, max: 99999, required: false }
+     - { label: "Featured Image", name: "image", widget: "image", media_folder: '/src/static/events', public_folder: '/static/events', default: '/static/events/default-club-meeting.jpg', required: false }
+     - { label: "Youtube Embed", name: "youtubeId", widget: "string", required: false }
+     - { label: "Body", name: "body", widget: "markdown", required: false }
+     - label: "Categories"
+       name: "categories"
+       widget: relation
+       multiple: true
+       required: false
+       collection: "taxonomies"
+       file: "event_categories"
+       search_fields: ["categories.*.name"]
+       displayFields: ["categories.*.name"]
+       value_field: "categories.*.id"
+     - label: Guests
+       name: guests
+       widget: list
+       allow_add: true
+       collapsed: true
+       fields:
+         - { label: Name, name: name, widget: string }
+         - { label: Website, name: website, widget: string, required: false }
+     - label: Resources
+       name: resources
+       widget: list
+       allow_add: true
+       collapsed: true
+       fields:
+         - { label: Title, name: title, widget: string }
+         - { label: URL, name: url, widget: string }
+     - label: "Metadata"
+       name: "meta"
+       widget: "object"
+       collapsed: true
+       fields:
+         - { label: "Description", name: "description", widget: "text", required: false, hint: "This description is most often used beneath search results and when this page is shown on social networks." }
+
+  - label: "Recipes"
+    label_singular: "Recipe"
+    name: "recipe"
+    folder: "src/categories"
+    create: true
+    editor:
+      preview: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "markdown" }
+      - label: "Featured Image"
+        name: "featured_image"
+        widget: "object"
+        fields: 
+          - { label: 'Image', name: 'image', widget: 'image', media_folder: 'static/recipes', required: false }
+          - { label: 'Alternative Text', name: 'alt', widget: 'string', required: false }
+      - label: "Author"
+        name: "author"
+        widget: "relation"
+        collection: "member"
+        search_fields: ["name"]
+        value_field: "{{slug}}"
+        display_fields: ["name"]
+      - { label: "Style", name: "style", widget: "string" }
+      - label: "Specifications"
+        name: "specs"
+        widget: "object"
+        fields:
+          - { label: 'Yield', name: "yield", widget: 'string' }
+          - { label: 'IBU', name: "ibu", widget: 'number', value_type: "int" }
+          - { label: 'ABV', name: 'abv', widget: 'number', value_type: "float" }
+          - { label: 'Original Gravity', name: 'og', widget: 'number', value_type: "float" }
+          - { label: 'Final Gravity', name: 'fg', widget: 'number', value_type: "float" }
+      - { label: "Ingredients", name: "ingredients", widget: "markdown", required: false }
+      - { label: "Directions", name: "directions", widget: "markdown", required: false }
+      - label: "Recipe Export"
+        name: "recipe_export"
+        widget: "file"
+        required: false
+        media_library:
+          media_folder: "/src/docs/recipes"
+          config:
+            multiple: false
+
+  - label: "Members"
+    label_singular: "Member"
+    name: "member"
+    folder: "src/members"
+    create: true
+    identifier_field: name
+    editor:
+      preview: false
+    fields:
+      - { label: 'Name', name: 'name', widget: 'string' }
+      - { label: 'Membership Year', name: 'membership_year', widget: 'number' }
+      - { label: 'Portrait', name: 'portrait', widget: 'image', media_folder: 'static/portraits', choose_url: false, required: false }
+      - { label: 'Bio', name: 'bio', widget: 'markdown', required: false }
+
+  - label: "Taxonomies"
+    label_singular: "taxonomy"
+    name: "taxonomies"
+    editor:
+      preview: false
+    files:
+      - label: "Event Categories"
+        name: event_categories
+        file: "src/_data/event_categories.yaml"
+        fields:
+          - label: Categories
+            name: categories
+            widget: list
+            allow_add: true
+            collapsed: true
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: ID, name: id, widget: string }
+              - { label: Description, name: description, widget: text, required: false }
+              - { label: Icon, name: icon, widget: code, required: false, default_language: html, hint: "Add SVG icon code here." }
+
+  - label: "Settings"
+    label_singular: "Setting"
+    name: "settings"
+    editor:
+      preview: false
+    files:
+      - label: "Navigation"
+        name: "items"
+        file: "src/_data/navigation.yaml"
+        fields:
+          - label: Nav Items
+            name: items
+            widget: list
+            allow_add: false
+            collapsed: false
+            fields:
+              - { label: Title, name: text, widget: string }
+              - { label: URL, name: url, widget: string }
+      - label: "Call to Action Link"
+        name: "cta_link"
+        file: "src/_data/cta_link.yaml"
+        fields:
+          - { label: CTA Link Text, name: cta_text, widget: string }
+          - { label: CTA Link URL, name: cta_url, widget: string }
+      - label: "Meta Settings"
+        name: "settings"
+        file: "src/_data/settings.yaml"
+        fields:
+          - { label: Site Name, name: site_name, widget: string }
+          - { label: Site Slogan, name: site_slogan, widget: string }
+      - label: "System Settings"
+        name: "system"
+        file: "src/_data/system.yaml"
+        fields:
+          - { label: "Maintenance Mode", name: maintenance_mode, widget: boolean }
+          - { label: "Maintenance Mode Message", name: maintenance_message, widget: text, required: false }
