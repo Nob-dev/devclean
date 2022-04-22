@@ -20,7 +20,7 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
   - label: "More"
     name: "more"
-    folder: "src/assets/more"
+    folder: "src/more_page"
     create: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
@@ -30,7 +30,7 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
   - label: "About"
     name: "about"
-    folder: "src/assets/about"
+    folder: "src/about_page"
     create: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
