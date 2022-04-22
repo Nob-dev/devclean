@@ -2,11 +2,11 @@ backend:
     name: git-gateway
     branch: master
 media_folder: "src/assets/blog"
-public_folder: "assets/blog"
+public_folder: "src/assets/blog"
 collections: 
   - label: "Blog"
     name: "blog"
-    folder: "assets/blog"
+    folder: "src/assets/blog"
     create: true 
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields: 
@@ -21,7 +21,7 @@ collections:
   - label: "More"
     name: "more"
     folder: "src/more_page"
-    public_folder: "../assets/more"
+    files: "src/assets/more"
     create: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
@@ -32,7 +32,7 @@ collections:
   - label: "About"
     name: "about"
     folder: "src/about_page"
-    public_folder: "../assets/about"
+    files: "src/assets/about"
     create: true
     fields:
       - { label: "Title", name: "title", widget: "string" }
