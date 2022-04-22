@@ -1,8 +1,8 @@
 ---
-title: "Doing well "
+title: "Doing Very  well "
 tags:
   - more
-image: ../assets/more/2022-03-20-16.02.08.png
-imageAlt: astra
+image: ../assets/more/2022-02-20-19.06.58.png
+imageAlt: astramo
 ---
-y you want me to do it would you have any further information for this job in the United Kingdom of the world
+na you want me to do it would you have any further information for this job in the United Kingdom of the world
