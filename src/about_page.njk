@@ -1,0 +1,14 @@
+---
+title: More
+layout: 'base.njk'
+---
+<div class="section container">
+<h1 class="section-title">About</h1>
+
+<ul role="list" class="articles__list flow">
+
+{%- for about in collections.about | reverse -%}
+{% include 'aboutArticle.njk' %}
+{%- endfor %}
+</ul>
+</div>

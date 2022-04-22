@@ -7,7 +7,8 @@ collections:
   - label: "Blog"
     name: "blog"
     folder: "src/blog"
-    create: true 
+    create: true
+    preview: false  
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields: 
       - { label: "Title", name: "title", widget: "string" }
@@ -22,6 +23,7 @@ collections:
     name: "more"
     folder: "src/more_page"
     create: true
+    preview: false 
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Tags", name: "tags", widget: "list", default: ["more"] }
@@ -32,7 +34,9 @@ collections:
     name: "about"
     folder: "src/about_page"
     create: true
+    preview: false 
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Tags", name: "tags", widget: "list", default: ["about"] }
       - { label: "Body", name: "body", widget: "markdown" }
       

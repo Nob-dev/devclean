@@ -1,0 +1,9 @@
+<li>
+  <article class="snippet">
+    <img src="{{ more.data.image}}" alt="{{ more.data.imageAlt}}" class="snippet__image">
+    <h3 class="snippet__title"><a href="{{ more.url  }}" >{{ more.data.title }}</h3></a>
+    <p class="snippet__meta"> by <span>{{ more.data.author }}</span> on <span>{{ more.date | postDate }}</span></p>
+    <p class="snippet__body">{{ post.data.description  }}</p>
+    <a href="{{ more.url  }}" class="btn btn--primary"> Read More </a>
+  </article>
+</li>
