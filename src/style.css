@@ -422,6 +422,12 @@ li {
       "body"
       "button";
 }
+.snippet__image {
+  grid-area: image;
+  width: 100%;
+  aspect-ratio: auto ;
+  object-fit: cover;
+}
 .articles__list {
   --flow-spacer: 3rem;
   list-style: none;
