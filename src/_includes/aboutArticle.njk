@@ -1,9 +1,17 @@
-<li>
+<li class="ads">
+
+<div class="sidebar">
   <article class="snippet">
-    <img src="{{ about.data.image}}" alt="{{ about.data.imageAlt}}" class="snippet__image">
     <h3 class="snippet__title"><a href="{{ about.url  }}" >{{ about.data.title }}</h3></a>
-    <p class="snippet__meta"> by <span>{{ about.data.author }}</span> on <span>{{ about.date | postDate }}</span></p>
     <p class="snippet__body">{{ about.data.description  }}</p>
-    <a href="{{ about.url  }}" class="btn btn--primary"> Read More </a>
   </article>
+</div>
+
+<div class="sidebar-ad">
+  <h4>categorie:</h4>
+  <article class="snippet">
+    <h3 class="snippet__title"><a href="{{ about.url  }}" >{{ about.data.title }}</h3></a>
+    <p class="snippet__body">{{ about.data.description  }}</p>
+  </article>
+</div>
 </li>

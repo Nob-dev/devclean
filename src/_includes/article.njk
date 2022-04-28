@@ -1,9 +1,17 @@
 ---
 layout: 'base.njk'
 ---
+<li class="ads-bar">
+<li class="ads-sidebar">
 
-<article class="main-article ">
-<div class="container container--narrow flow">
+<article class="container--narrow-flow ">
+    <div class="hero__image">
+        <div class="card">
+          <h3>Place Ads Here  </h3>
+          <hr>
+        </div>
+      </div>
+<div class="main-article">
 
     <h1 class="article-title ">
         {{ title }}
@@ -13,9 +21,69 @@ layout: 'base.njk'
     </figure>
     <figcaption>
         {{ imageAlt }}
+        
+      {% include 'ads.njk' %} 
     </figcaption>
 
     {{ content | safe }}
 
 </div>
+<div class="hero__image">
+    <div class="card">
+      {% include 'ads.njk' %} 
+    </div>
+  </div>
+  
 </article>
+
+<div class="side-nav">
+<article class="narrow_sidebar-up  ">
+<div class=" main-article">
+<div class="hero__image">
+    <div class="card">
+     
+      {% include 'ads.njk' %} 
+      <hr>
+    </div>
+  </div>
+    <h1 class="article-title ">
+       Categories 
+    </h1>
+    <ul role="list" class="articles__list- flow">
+
+        {%- for post in collections.post | reverse -%}
+        {% include 'sidebar-snippet.njk' %}
+        {%- endfor %}
+    </ul>
+
+</div>
+</article>
+
+<article class="narrow_sidebar-dn  ">
+<div class=" main-article">
+
+  {% include 'ads.njk' %} 
+    <h1 class="article-title ">
+       Categories 
+    </h1>
+  <ul role="list" class="articles__list- flow">
+    
+      {%- for post in collections.post | reverse -%}
+      {% include 'sidebar-snippet.njk' %}
+      {%- endfor %}
+      
+    {% include 'ads.njk' %} 
+  </ul>
+
+</div>
+</article>
+</div>
+</li>
+
+<div class="hero__ads">
+    <li class="card">
+      {% include 'ads.njk' %} 
+    </li>
+</div>
+</div>
+</li>
